@@ -23,7 +23,7 @@ function keyboard_shortcuts_install() {}
 function keyboard_shortcuts_uninstall() {}
 
 function keyboard_shortcuts_script() {
-	head_add_js('addon/keyboard_shortcuts/keyboard_shortcuts.js');
-	//$content = '<script type="text/javascript" src="' . z_root() . '/addon/keyboard_shortcuts/keyboard_shortcuts.js"></script>' . "\r\n";
-	//return $content;
+	//head_add_js('addon/keyboard_shortcuts/keyboard_shortcuts.js');
+	$content = '<script type="text/javascript" src="' . z_root() . '/addon/keyboard_shortcuts/keyboard_shortcuts.js"></script>' . "\r\n";
+	return $content;
 }
