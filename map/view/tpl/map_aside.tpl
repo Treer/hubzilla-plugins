@@ -146,6 +146,7 @@
     </div> <!-- panel-group -->
 
     <div>{{$acl}}</div>
+<p class="descriptive-text" style="margin-left: 15px;">{{$version}}</p>
 </div> <!-- widget -->
 
 <div class="hide" id="shared-marker-dropdown-menu">
@@ -161,4 +162,3 @@
         </ul>
     </div>
 </div>
-<p class="descriptive-text" style="margin-left: 15px;">{{$version}}</p>

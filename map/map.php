@@ -572,8 +572,7 @@ function widget_map_controls () {
     $x = array(
         'lockstate' => (($channel['channel_allow_cid'] || $channel['channel_allow_gid'] || $channel['channel_deny_cid'] || $channel['channel_deny_gid']) ? 'lock' : 'unlock'),
         'acl' => populate_acl($channel_acl),
-        'bang' => '',
-        '$version' => '<a href="https://github.com/anaqreon/hubzilla-plugins/tags/'.map_get_version().'">v'.map_get_version().'</a>'
+        'bang' => ''
     );
 
     //$a->page['aside']
@@ -581,7 +580,8 @@ function widget_map_controls () {
         '$asidetitle' => t('Map Controls'),
         '$lockstate' => $x['lockstate'],
         '$acl' => $x['acl'],
-        '$bang' => $x['bang']
+        '$bang' => $x['bang'],
+        '$version' => '<a href="https://github.com/anaqreon/hubzilla-plugins/">v'.map_get_version().'</a>'
     ));
 
     return $o;
