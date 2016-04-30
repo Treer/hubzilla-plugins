@@ -1,0 +1,4 @@
+url: $baseurl/map
+requires: local_channel
+name: ownMapp
+photo: $baseurl/addon/map/map.png
