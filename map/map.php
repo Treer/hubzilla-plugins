@@ -581,7 +581,7 @@ function widget_map_controls () {
         '$lockstate' => $x['lockstate'],
         '$acl' => $x['acl'],
         '$bang' => $x['bang'],
-        '$version' => '<a href="https://github.com/anaqreon/hubzilla-plugins/">v'.map_get_version().'</a>'
+        '$version' => '<a target="_blank" href="https://github.com/anaqreon/hubzilla-plugins/">v'.map_get_version().'</a>'
     ));
 
     return $o;
