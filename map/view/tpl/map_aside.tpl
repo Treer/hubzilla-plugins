@@ -161,3 +161,4 @@
         </ul>
     </div>
 </div>
+<p class="descriptive-text" style="margin-left: 15px;">{{$version}}</p>

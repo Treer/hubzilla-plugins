@@ -572,7 +572,8 @@ function widget_map_controls () {
     $x = array(
         'lockstate' => (($channel['channel_allow_cid'] || $channel['channel_allow_gid'] || $channel['channel_deny_cid'] || $channel['channel_deny_gid']) ? 'lock' : 'unlock'),
         'acl' => populate_acl($channel_acl),
-        'bang' => ''
+        'bang' => '',
+        '$version' => '<a href="https://github.com/anaqreon/hubzilla-plugins/tags/'.chess_get_version().'">v'.chess_get_version().'</a>'
     );
 
     //$a->page['aside']
