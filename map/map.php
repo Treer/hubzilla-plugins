@@ -46,7 +46,7 @@ function map_install() {
         notice('Error creating the locserv database tables');
         logger('Error creating the locserv database tables: ' . $errors);
     } else {
-        notice('Location Services database table installed successfully');
+        info('Location Services database table installed successfully');
         logger('Location Services database table installed successfully');
     }
     return;
@@ -74,11 +74,11 @@ function map_uninstall() {
             notice('Errors encountered deleting ownMapp database tables.');
             logger('Errors encountered deleting ownMapp database tables: ' . $errors);
         } else {
-            notice('ownMapp uninstalled successfully. Database tables deleted.');
+            info('ownMapp uninstalled successfully. Database tables deleted.');
             logger('ownMapp uninstalled successfully. Database tables deleted.');
         }
     } else {
-        notice('ownMapp uninstalled successfully.');
+        info('ownMapp uninstalled successfully.');
         logger('ownMapp uninstalled successfully.');
     }
     del_config('map', 'dropTablesOnUninstall');
@@ -966,7 +966,7 @@ function map_import_data($a, $channel_id) {
                         $marker['layer']
                 );
                 if (count($r)) {
-                    notice(t('Markers imported successfully') . EOL);
+                    info(t('Markers imported successfully') . EOL);
                     logger('map data import: Markers imported successfully');
                 } 
             } else {
