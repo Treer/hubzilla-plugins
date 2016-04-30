@@ -6,7 +6,7 @@
  * Description: Provides location services like storing and sharing physical location data
  * Version: 1.2.2
  * Author: Andrew Manning <andrew@reticu.li>
- * MinVersion: 1.1.2
+ * MinVersion: 1.4.2
  *
  */
 
