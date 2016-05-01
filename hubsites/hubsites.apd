@@ -1,0 +1,4 @@
+url: $baseurl/hubsites
+requires: local_channel
+name: Hubsites
+photo: $baseurl/addon/hubsites/hubsites.jpg

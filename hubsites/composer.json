@@ -1,0 +1,17 @@
+{
+    "name": "zot/hubzites",
+    "require": {
+        "kzykhys/git": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "PHPGit": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrew Manning",
+            "email": "andrew@reticu.li"
+        }
+    ]
+}
