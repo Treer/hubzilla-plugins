@@ -22,7 +22,7 @@
                     $('#embedPhotoModalBodyAlbumDialog').html('\
                             <div><ul class="nav">\n\
                                 <li><a href="#" onclick="initializeEmbedPhotoDialog();return false;">\n\
-                                    <i class="icon-chevron-left"></i>&nbsp\n\
+                                    <i class="fa fa-chevron-left"></i>&nbsp\n\
                                     Choose a different album...\n\
                                     </a>\n\
                                 </li>\n\

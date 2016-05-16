@@ -22,7 +22,7 @@
                     $('#embedPhotoModalBodyAlbumDialog-{{$id}}').html('\
                             <div><ul class="nav">\n\
                                 <li><a href="#" onclick="initializeEmbedPhotoDialogComment{{$id}}();return false;">\n\
-                                    <i class="icon-chevron-left"></i>&nbsp\n\
+                                    <i class="fa fa-chevron-left"></i>&nbsp\n\
                                     Choose a different album...\n\
                                     </a>\n\
                                 </li>\n\
@@ -100,6 +100,6 @@
 </script>
 <div class='btn-group'>
 <button id="embed-photo-wrapper-comment-{{$id}}" class="btn btn-default btn-xs" title="Embed a photo" onclick="initializeEmbedPhotoDialogComment{{$id}}();return false;">
-    <i id="embed-photo-comment" class="icon-picture jot-icons"></i>
+    <i id="embed-photo-comment" class="fa fa-file-image-o jot-icons"></i>
 </button>
 </div>
