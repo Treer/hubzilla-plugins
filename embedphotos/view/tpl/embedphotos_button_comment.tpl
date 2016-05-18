@@ -15,15 +15,15 @@
         $('#embedPhotoModal-{{$id}}').modal('show');
     };
     var choosePhotoFromAlbumComment{{$id}} = function (album) {
-        $.post("embedphotos/album", {name: album}, 
+        $.post("embedphotos/album", {name: album},
             function(data) {
                 if (data['status']) {
-                    $('#embedPhotoModalLabel-{{$id}}').html('Choose images to embed');
+                    $('#embedPhotoModalLabel-{{$id}}').html('{{$modalchooseimages}}');
                     $('#embedPhotoModalBodyAlbumDialog-{{$id}}').html('\
                             <div><ul class="nav">\n\
                                 <li><a href="#" onclick="initializeEmbedPhotoDialogComment{{$id}}();return false;">\n\
                                     <i class="fa fa-chevron-left"></i>&nbsp\n\
-                                    Choose a different album...\n\
+                                    {{$modalchoosealbum}}\n\
                                     </a>\n\
                                 </li>\n\
                             </ul><br></div>')
@@ -33,7 +33,7 @@
                         var image = document.getElementById(evt.target.id);
                         if (typeof($(image).parent()[0]) !== 'undefined') {
                             var imageparent = document.getElementById($(image).parent()[0].id);
-                            $(imageparent).toggleClass('embed-photo-selected-photo');        
+                            $(imageparent).toggleClass('embed-photo-selected-photo');
                         }
                     });
                     $('#embedPhotoModalBodyAlbumListDialog-{{$id}}').addClass('hide');
@@ -41,7 +41,7 @@
                     $('#embed-photo-OKButton-{{$id}}').click(function () {
                         $('.embed-photo-selected-photo').each(function (index) {
                             var href = $(this).attr('href');
-                            $.post("embedphotos/photolink", {href: href}, 
+                            $.post("embedphotos/photolink", {href: href},
                                 function(ddata) {
                                     if (ddata['status']) {
                                         if($("#comment-edit-text-{{$id}}").hasClass("comment-edit-text-empty")) {
@@ -53,10 +53,10 @@
                                         } else {
                                             var currentComment = $("#comment-edit-text-{{$id}}").val();
                                         }
-                                        
+
                                         $("#comment-edit-text-{{$id}}").val(currentComment + ddata['photolink']);
                                     } else {
-                                        window.console.log('Error getting photo link' + ':' + ddata['errormsg']);
+                                        window.console.log('{{$modalerrorlink}}' + ':' + ddata['errormsg']);
                                     }
                                     return false;
                                 },
@@ -67,18 +67,18 @@
                         $('#embedPhotoModal-{{$id}}').modal('hide');
                     });
                 } else {
-                    window.console.log('Error getting album ' + JSON.stringify(album) + ':' + data['errormsg']);
+                    window.console.log('{{$modalerroralbum}} ' + JSON.stringify(album) + ':' + data['errormsg']);
                 }
                 return false;
             },
         'json');
     };
     var getPhotoAlbumListComment{{$id}} = function () {
-        $.post("embedphotos/albumlist", {}, 
+        $.post("embedphotos/albumlist", {},
             function(data) {
                 if (data['status']) {
                     var albums = data['albumlist']; //JSON.parse(data['albumlist']);
-                    $('#embedPhotoModalLabel-{{$id}}').html('Choose an album');
+                    $('#embedPhotoModalLabel-{{$id}}').html('{{$modalchoosealbum}}');
                     $('#embedPhotoModalBodyAlbumList-{{$id}}').html('<ul class="nav"></ul>');
                     for(var i=0; i<albums.length; i++) {
                         var albumName = albums[i].text;
@@ -91,7 +91,7 @@
                     $('#embedPhotoModalBodyAlbumDialog-{{$id}}').addClass('hide');
                     $('#embedPhotoModalBodyAlbumListDialog-{{$id}}').removeClass('hide');
                 } else {
-                    window.console.log('Error getting album list' + ':' + data['errormsg']);
+                    window.console.log('{{$modalerrorlist}}' + ':' + data['errormsg']);
                 }
                 return false;
             },
@@ -99,7 +99,7 @@
     };
 </script>
 <div class='btn-group'>
-<button id="embed-photo-wrapper-comment-{{$id}}" class="btn btn-default btn-xs" title="Embed a photo" onclick="initializeEmbedPhotoDialogComment{{$id}}();return false;">
+<button id="embed-photo-wrapper-comment-{{$id}}" class="btn btn-default btn-xs" title="{{$buttontitle}}" onclick="initializeEmbedPhotoDialogComment{{$id}}();return false;">
     <i id="embed-photo-comment" class="fa fa-file-image-o jot-icons"></i>
 </button>
 </div>
