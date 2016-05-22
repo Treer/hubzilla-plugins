@@ -81,22 +81,32 @@ function embedphotos_post($a) {
 
 function embedphotos_jot_tool ($a, &$b) {
     $b .= replace_macros(get_markup_template('jot_tool.tpl', 'addon/embedphotos'), array(
-        'buttontitle' => t('Embed a photo from your gallery'),
-        'modaltitle' => t('Embed a photo from your gallery'),
-        'modalchooseimages' => t('Choose images to embed'),
-        'modalchoosealbum' => t('Choose an album'),
-        'modaldiffalbum' => t('Choose a different album...'),
-        'modalerrorlist' => t('Error getting album list'),
-        'modalerrorlink' => t('Error getting photo link'),
-        'modalerroralbum' => t('Error getting album'),
-        'modalcancel' => t('Cancel'),
-        'modalok' => t('OK')
+        '$buttontitle' => t('Embed a photo from your gallery'),
+        '$modaltitle' => t('Embed a photo from your gallery'),
+        '$modalchooseimages' => t('Choose images to embed'),
+        '$modalchoosealbum' => t('Choose an album'),
+        '$modaldiffalbum' => t('Choose a different album...'),
+        '$modalerrorlist' => t('Error getting album list'),
+        '$modalerrorlink' => t('Error getting photo link'),
+        '$modalerroralbum' => t('Error getting album'),
+        '$modalcancel' => t('Cancel'),
+        '$modalok' => t('OK')
     ));
 }
 
 function embedphotos_comment_buttons ($a, &$b) {
     $b['comment_buttons'] = replace_macros(get_markup_template('embedphotos_button_comment.tpl', 'addon/embedphotos'), array(
-        '$id' => $b['id']
+        '$id' => $b['id'],
+        '$buttontitle' => t('Embed a photo from your gallery'),
+        '$modaltitle' => t('Embed a photo from your gallery'),
+        '$modalchooseimages' => t('Choose images to embed'),
+        '$modalchoosealbum' => t('Choose an album'),
+        '$modaldiffalbum' => t('Choose a different album...'),
+        '$modalerrorlist' => t('Error getting album list'),
+        '$modalerrorlink' => t('Error getting photo link'),
+        '$modalerroralbum' => t('Error getting album'),
+        '$modalcancel' => t('Cancel'),
+        '$modalok' => t('OK')
     ));
 }
 
@@ -226,7 +236,10 @@ function embedphotos_display_item ($a, &$b) {
     logger('matches: ' . json_encode($matches));
     if($b['output']['comment'] !== "") {
         $b['output']['comment'] .= replace_macros(get_markup_template('embedphotos_button_comment_modal.tpl', 'addon/embedphotos'), array(
-            '$id' => $matches[1]
+            '$id' => $matches[1],
+            '$modaltitle' => t('Embed a photo from your gallery'),
+            '$modalcancel' => t('Cancel'),
+            '$modalok' => t('OK')
         ));
     }
 }

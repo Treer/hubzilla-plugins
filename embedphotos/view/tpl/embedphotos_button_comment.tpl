@@ -23,7 +23,7 @@
                             <div><ul class="nav">\n\
                                 <li><a href="#" onclick="initializeEmbedPhotoDialogComment{{$id}}();return false;">\n\
                                     <i class="fa fa-chevron-left"></i>&nbsp\n\
-                                    {{$modalchoosealbum}}\n\
+                                    {{$modaldiffalbum}}\n\
                                     </a>\n\
                                 </li>\n\
                             </ul><br></div>')
