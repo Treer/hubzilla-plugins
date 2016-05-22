@@ -22,10 +22,10 @@ function embedphotos_unload() {
     unregister_hook('comment_buttons', 'addon/embedphotos/embedphotos.php', 'embedphotos_comment_buttons');
 }
 function embedphotos_install() {
-    
+
 }
 function embedphotos_uninstall() {
-    
+
 }
 function embedphotos_module() {
     return;
@@ -33,14 +33,14 @@ function embedphotos_module() {
 
 function embedphotos_init($a) {}
 
-function embedphotos_post($a) {  
+function embedphotos_post($a) {
     if (argc() > 1 && argv(1) === 'album') {
         // API: /embedphotos/album
         $name = (x($_POST,'name') ? $_POST['name'] : null );
         if (!$name) {
             json_return_and_die(array('errormsg' => 'Error retrieving album', 'status' => false));
         }
-        $album = embedphotos_widget_album(array('channel' => App::get_channel(), 'album' => $name));   
+        $album = embedphotos_widget_album(array('channel' => App::get_channel(), 'album' => $name));
 //        $album_list = embedphotos_album_list($a);
 //        logger('album: ' . $album);
         json_return_and_die(array('status' => true, 'content' => $album));
@@ -48,7 +48,7 @@ function embedphotos_post($a) {
     }
     if (argc() > 1 && argv(1) === 'albumlist') {
         // API: /embedphotos/albumlist
-//        $album = embedphotos_widget_album(array('channel' => App::get_channel(), 'album' => $name));   
+//        $album = embedphotos_widget_album(array('channel' => App::get_channel(), 'album' => $name));
         $album_list = embedphotos_album_list($a);
         json_return_and_die(array('status' => true, 'albumlist' => $album_list));
 
@@ -81,6 +81,16 @@ function embedphotos_post($a) {
 
 function embedphotos_jot_tool ($a, &$b) {
     $b .= replace_macros(get_markup_template('jot_tool.tpl', 'addon/embedphotos'), array(
+        'buttontitle' => t('Embed a photo from your gallery'),
+        'modaltitle' => t('Embed a photo from your gallery'),
+        'modalchooseimages' => t('Choose images to embed'),
+        'modalchoosealbum' => t('Choose an album'),
+        'modaldiffalbum' => t('Choose a different album...'),
+        'modalerrorlist' => t('Error getting album list'),
+        'modalerrorlink' => t('Error getting photo link'),
+        'modalerroralbum' => t('Error getting album'),
+        'modalcancel' => t('Cancel'),
+        'modalok' => t('OK')
     ));
 }
 
@@ -102,7 +112,7 @@ function embedphotos_album_list($a) {
 }
 
 /**
- * Copied from include/widgets.php::widget_album() with a modification to get the profile_uid from 
+ * Copied from include/widgets.php::widget_album() with a modification to get the profile_uid from
  * the input array as in widget_item()
  * @param type $name
  * @return string
@@ -129,7 +139,7 @@ function embedphotos_widget_album($args) {
     if($args['title'])
             $title = $args['title'];
 
-    /** 
+    /**
      * This may return incorrect permissions if you have multiple directories of the same name.
      * It is a limitation of the photo table using a name for a photo album instead of a folder hash
      */
@@ -149,7 +159,7 @@ function embedphotos_widget_album($args) {
     $order = 'DESC';
 
     $r = q("SELECT p.resource_id, p.id, p.filename, p.type, p.scale, p.description, p.created FROM photo p INNER JOIN
-            (SELECT resource_id, max(scale) scale FROM photo WHERE uid = %d AND album = '%s' AND scale <= 4 AND photo_usage IN ( %d, %d ) $sql_extra GROUP BY resource_id) ph 
+            (SELECT resource_id, max(scale) scale FROM photo WHERE uid = %d AND album = '%s' AND scale <= 4 AND photo_usage IN ( %d, %d ) $sql_extra GROUP BY resource_id) ph
             ON (p.resource_id = ph.resource_id AND p.scale = ph.scale)
             ORDER BY created $order ",
             intval($channel_id),

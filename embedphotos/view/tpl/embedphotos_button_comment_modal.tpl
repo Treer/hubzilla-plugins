@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="embedPhotoModalLabel-{{$id}}">Embed a Photo</h4>
+        <h4 class="modal-title" id="embedPhotoModalLabel-{{$id}}">{{$modaltitle}}</h4>
       </div>
      <div class="modal-body" id="embedPhotoModalBody-{{$id}}" >
          <div id="embedPhotoModalBodyAlbumListDialog-{{$id}}" class="hide">
@@ -14,8 +14,8 @@
          </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button id="embed-photo-OKButton-{{$id}}" type="button" class="btn btn-primary">OK</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{$modalcancel}}</button>
+        <button id="embed-photo-OKButton-{{$id}}" type="button" class="btn btn-primary">{{$modalok}}</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

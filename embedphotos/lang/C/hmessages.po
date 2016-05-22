@@ -1,0 +1,70 @@
+# ADDON embedphotos
+# Copyright (C) 
+# This file is distributed under the same license as the Hubzilla embedphotos addon package.
+# 
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-18 16:21+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: embedphotos.php:84 embedphotos.php:85
+msgid "Embed a photo from your gallery"
+msgstr ""
+
+#: embedphotos.php:86
+msgid "Choose images to embed"
+msgstr ""
+
+#: embedphotos.php:87
+msgid "Choose an album"
+msgstr ""
+
+#: embedphotos.php:88
+msgid "Choose a different album..."
+msgstr ""
+
+#: embedphotos.php:89
+msgid "Error getting album list"
+msgstr ""
+
+#: embedphotos.php:90
+msgid "Error getting photo link"
+msgstr ""
+
+#: embedphotos.php:91
+msgid "Error getting album"
+msgstr ""
+
+#: embedphotos.php:92
+msgid "Cancel"
+msgstr ""
+
+#: embedphotos.php:93
+msgid "OK"
+msgstr ""
+
+#: embedphotos.php:196
+msgid "View Photo"
+msgstr ""
+
+#: embedphotos.php:202
+msgid "Unknown"
+msgstr ""
+
+#: embedphotos.php:213
+msgid "Edit Album"
+msgstr ""
+
+#: embedphotos.php:215
+msgid "Upload"
+msgstr ""
