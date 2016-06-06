@@ -7,6 +7,7 @@
  * Version: 0.2.5
  * Author: Andrew Manning <andrew@reticu.li>
  * MinVersion: 1.6
+ * MaxVersion: 1.6.6
  *
  */
 
