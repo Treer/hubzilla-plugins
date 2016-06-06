@@ -357,7 +357,7 @@ function map_init($a) {
 function map_revokeAllDynamicShares() {
     $channel = App::get_channel();  // Get the channel information
     $r = q("UPDATE `locserv-dynamic-markers` SET resource_id = '' WHERE resource_id != ''");
-    $items = q("SELECT id FROM item WHERE obj_type = '%s' AND resource_type = '%s' AND resource_id != '' AND object LIKE '%s' AND uid = %d",
+    $items = q("SELECT id FROM item WHERE obj_type = '%s' AND resource_type = '%s' AND resource_id != '' AND obj LIKE '%s' AND uid = %d",
             dbesc(ACTIVITY_POST),
             dbesc('locserv'),
             dbesc('%"locationDataType":"dynamicMarker"%'),
@@ -468,7 +468,7 @@ function map_shareStaticMarker($data) {
     $arr['plink']           = z_root() . '/channel/' . $channel['channel_address'] . '/?f=&mid=' . $arr['mid'];
     $arr['verb']          = ACTIVITY_POST;
     $arr['obj_type']      = $objtype;
-    $arr['object']        = $object;
+    $arr['obj']        = $object;
     $arr['body']          = $body;
     
     $post = item_store($arr);
@@ -520,7 +520,7 @@ function map_getMyMarkers($ret = false) {
 
 function map_getEvents() {
     $channel = App::get_channel();  // Get the channel information
-    $markers = q("SELECT uid,event_xchan,event_hash,start,finish,location,summary,description "
+    $markers = q("SELECT uid,event_xchan,event_hash,dtstart,dtend,location,summary,description "
             . "FROM `event` WHERE uid = %d AND location REGEXP '%s'",
             intval($channel['channel_id']),
             dbesc('^\[[-]?[0-9]+\.[0-9]+,[-]?[0-9]+\.[0-9]+\]$')
@@ -842,7 +842,7 @@ function map_shareUserLocation($data) {
     $arr['plink']           = z_root() . '/channel/' . $channel['channel_address'] . '/?f=&mid=' . $arr['mid'];
     $arr['verb']          = ACTIVITY_POST;
     $arr['obj_type']      = $objtype;
-    $arr['object']        = $object;
+    $arr['obj']        = $object;
     $arr['body']          = $body;
     
     $post = item_store($arr);
@@ -872,7 +872,7 @@ function map_getSharedData($type, $filter) {
     }
     switch ($filter) {
         case 'owner':
-            $shares = q("SELECT owner_xchan,resource_id FROM item WHERE resource_type = '%s' AND owner_xchan != '%s' AND object LIKE '%s' $sql_extra", 
+            $shares = q("SELECT owner_xchan,resource_id FROM item WHERE resource_type = '%s' AND owner_xchan != '%s' AND obj LIKE '%s' $sql_extra", 
                     dbesc('locserv'), 
                     dbesc(App::get_channel()['channel_hash']),
                     dbesc('%"locationDataType":"' . $type . '"%')
@@ -886,7 +886,7 @@ function map_getSharedData($type, $filter) {
             echo json_encode(array('sharedData' => $shares, 'channels' => $channels, 'status' => true));
             die;
         case 'all':
-            $shares = q("SELECT owner_xchan,resource_id FROM item WHERE resource_type = '%s' AND owner_xchan != '%s' AND object LIKE '%s' $sql_extra", 
+            $shares = q("SELECT owner_xchan,resource_id FROM item WHERE resource_type = '%s' AND owner_xchan != '%s' AND obj LIKE '%s' $sql_extra", 
                     dbesc('locserv'), 
                     dbesc(App::get_channel()['channel_hash']),
                     dbesc('%"locationDataType":"' . $type . '"%')
