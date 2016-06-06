@@ -7,6 +7,7 @@
  * Version: 0.2.4
  * Author: Andrew Manning <https://grid.reticu.li/channel/andrewmanning/>
  * MinVersion: 1.3.3
+ * MaxVersion: 1.6.6
  *  
  */
 require_once('include/permissions.php');
