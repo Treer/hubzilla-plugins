@@ -4,15 +4,14 @@
  *
  * Name: Hubsites
  * Description: Automatic import of webpage elements from git repositories
- * Version: 0.2.4
+ * Version: 0.2.5
  * Author: Andrew Manning <https://grid.reticu.li/channel/andrewmanning/>
- * MinVersion: 1.3.3
+ * MinVersion: 1.8
  *  
  */
 require_once('include/permissions.php');
 require_once('include/items.php');
 require_once('include/acl_selectors.php');
-require_once('include/Contact.php');            // for rrmdir($path)
 require __DIR__ . '/vendor/autoload.php';       // Load PHPGit dependencies
 
 function hubsites_load() {

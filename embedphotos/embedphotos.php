@@ -40,7 +40,7 @@ function embedphotos_post($a) {
         if (!$name) {
             json_return_and_die(array('errormsg' => 'Error retrieving album', 'status' => false));
         }
-        $album = embedphotos_widget_album(array('channel' => App::get_channel(), 'album' => $name));
+        $album = embedphotos_widget_album(array('channel' => \App::get_channel(), 'album' => $name));
 //        $album_list = embedphotos_album_list($a);
 //        logger('album: ' . $album);
         json_return_and_die(array('status' => true, 'content' => $album));
@@ -48,7 +48,7 @@ function embedphotos_post($a) {
     }
     if (argc() > 1 && argv(1) === 'albumlist') {
         // API: /embedphotos/albumlist
-//        $album = embedphotos_widget_album(array('channel' => App::get_channel(), 'album' => $name));
+//        $album = embedphotos_widget_album(array('channel' => \App::get_channel(), 'album' => $name));
         $album_list = embedphotos_album_list($a);
         json_return_and_die(array('status' => true, 'albumlist' => $album_list));
 
@@ -103,7 +103,7 @@ function embedphotos_comment_buttons ($a, &$b) {
 function embedphotos_album_list($a) {
     $o = '';
     require_once('include/photos.php');
-    $p = photos_albums_list(App::get_channel(), App::get_observer());
+    $p = photos_albums_list(\App::get_channel(), \App::get_observer());
     if ($p['success']) {
         return $p['albums'];
     } else {
@@ -124,7 +124,7 @@ function embedphotos_widget_album($args) {
             $channel = $args['channel'];
             $channel_id = intval($channel['channel_id']);
     if(! $channel_id)
-            $channel_id = App::$profile_uid;
+            $channel_id = \App::$profile_uid;
     if(! $channel_id)
             return '';
 
